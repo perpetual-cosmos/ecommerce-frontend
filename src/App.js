@@ -6,11 +6,11 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        
+        <Suspense fallback={<div style={{textAlign: 'center', marginTop: 60}}>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>
-     
+        </Suspense>
       </Router>
     </CartProvider>
   );
