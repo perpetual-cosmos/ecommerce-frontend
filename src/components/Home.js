@@ -92,7 +92,7 @@ const Home = () => {
       </section>
 
       {/* FAQ Section */}
-      
+      <FAQ />
       {/* Footer */}
       <footer className="home-footer">
         <div className="footer-content">
