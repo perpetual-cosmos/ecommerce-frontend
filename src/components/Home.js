@@ -56,7 +56,12 @@ const Home = () => {
 
      
 
-       
+        <div className="view-all-section">
+          <Link to="/products" className="view-all-btn">
+            View All Products
+          </Link>
+        </div>
+      </section>
 
       {/* Features Section */}
       <section className="features-section">
