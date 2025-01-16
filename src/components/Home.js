@@ -7,6 +7,13 @@ const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
+  
+
+  
+
+  
+
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -84,6 +91,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
       
       {/* Footer */}
       <footer className="home-footer">
