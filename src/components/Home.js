@@ -12,7 +12,16 @@ const Home = () => {
 
   
 
-  
+  const fetchFeaturedProducts = async () => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/api/product?limit=6`);
+      setProducts(response.data);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
