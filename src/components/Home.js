@@ -27,7 +27,16 @@ const Home = () => {
     ? process.env.PUBLIC_URL + '/header-mobile.webp'
     : process.env.PUBLIC_URL + '/header-desktop.webp';
 
-  
+  if (loading) {
+    return (
+      <div className="home-container">
+        <div className="loading-spinner">
+          <div className="spinner"></div>
+          <p>Loading amazing products...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="home-container">
