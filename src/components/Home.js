@@ -10,7 +10,25 @@ const Home = () => {
 
   
 
-  
+  const refreshUserData = async () => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/api/auth/profile`);
+      const updatedUser = response.data.user;
+      
+      // Update localStorage with fresh user data
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      setUser(updatedUser);
+    } catch (error) {
+      console.error('Error refreshing user data:', error);
+      // If token is invalid, clear localStorage
+      if (error.response?.status === 401) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        delete axios.defaults.headers.common['Authorization'];
+        setUser(null);
+      }
+    }
+  };
 
   const fetchFeaturedProducts = async () => {
     try {
