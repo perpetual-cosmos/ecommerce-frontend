@@ -6,7 +6,10 @@ import { Link, useNavigate } from 'react-router-dom';
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const { addToCart, cart } = useCart();
+  const [addedId, setAddedId] = useState(null);
 
   useEffect(() => {
     // Check if user is logged in
