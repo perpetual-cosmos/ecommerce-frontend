@@ -8,7 +8,23 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
 
-  
+  useEffect(() => {
+    // Check if user is logged in
+    const token = localStorage.getItem('token');
+    const userData = localStorage.getItem('user');
+    
+    if (token && userData) {
+      const parsedUser = JSON.parse(userData);
+      setUser(parsedUser);
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      
+      // Refresh user data to get latest verification status
+      refreshUserData();
+    }
+
+    // Fetch featured products
+    fetchFeaturedProducts();
+  }, []);
 
   const refreshUserData = async () => {
     try {
