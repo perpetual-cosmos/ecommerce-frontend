@@ -55,7 +55,13 @@ const Header = ({ user, handleLogout }) => {
               <button onClick={() => { handleLogout(); closeMobileNav(); }} className="logout-btn">Logout</button>
             </div>
           ) 
+          <CartIcon />
+        </div>
+      </div>
+     
+         
       
+  
     </header>
   );
 };
