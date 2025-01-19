@@ -54,7 +54,12 @@ const Header = ({ user, handleLogout }) => {
               )}
               <button onClick={() => { handleLogout(); closeMobileNav(); }} className="logout-btn">Logout</button>
             </div>
-          ) 
+          ) : (
+            <div className="auth-buttons">
+              <Link to="/login" className="auth-btn login-btn" onClick={closeMobileNav}>Login</Link>
+              <Link to="/register" className="auth-btn register-btn" onClick={closeMobileNav}>Register</Link>
+            </div>
+          )}
           <CartIcon />
         </div>
       </div>
