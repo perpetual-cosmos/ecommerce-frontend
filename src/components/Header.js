@@ -63,10 +63,27 @@ const Header = ({ user, handleLogout }) => {
           <CartIcon />
         </div>
       </div>
-     
-         
-      
-  
+      {/* Mobile Nav Overlay */}
+      <div className={`mobile-nav${mobileNavOpen ? ' open' : ''}`} onClick={closeMobileNav}>
+        <nav onClick={e => e.stopPropagation()}>{NavLinks}</nav>
+        <div className="auth-section" style={{ flexDirection: 'column', gap: 16 }}>
+          {user ? (
+            <div className="user-menu" style={{ flexDirection: 'column', gap: 8 }}>
+              <span className="user-name">Welcome, {user.name}</span>
+              {user.isEmailVerified && (
+                <span className="verification-badge verified">✓ Verified</span>
+              )}
+              <button onClick={() => { handleLogout(); closeMobileNav(); }} className="logout-btn">Logout</button>
+            </div>
+          ) : (
+            <div className="auth-buttons" style={{ flexDirection: 'column', gap: 8 }}>
+              <Link to="/login" className="auth-btn login-btn" onClick={closeMobileNav}>Login</Link>
+              <Link to="/register" className="auth-btn register-btn" onClick={closeMobileNav}>Register</Link>
+            </div>
+          )}
+          <CartIcon />
+        </div>
+      </div>
     </header>
   );
 };
