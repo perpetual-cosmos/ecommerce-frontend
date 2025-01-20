@@ -7,7 +7,17 @@ const CartIcon = () => {
   const { cart } = useCart();
   const navigate = useNavigate();
   const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-
+  return (
+    <div className="cart-icon-wrapper" onClick={() => navigate('/cart')} title="View Cart" aria-label="Cart">
+      {/* Modern shopping cart SVG icon */}
+      <svg className="cart-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#256d46" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="9" cy="21" r="1" />
+        <circle cx="20" cy="21" r="1" />
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61l1.6-8.39H6" />
+      </svg>
+      {totalCount > 0 && <span className="cart-badge">{totalCount}</span>}
+    </div>
+  );
 };
 
 const Header = ({ user, handleLogout }) => {
