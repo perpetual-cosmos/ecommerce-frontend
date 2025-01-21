@@ -4,6 +4,10 @@ import './FAQ.css';
 const faqData = [
   
   {
+    question: 'Is my payment information secure?',
+    answer: 'Yes, all payments are processed securely using Stripe. We do not store your payment details.'
+  },
+  {
     question: 'Can I get a refund?',
     answer: 'Due to the nature of digital products, all sales are final. However, if you have any issues, please contact our support.'
   }
