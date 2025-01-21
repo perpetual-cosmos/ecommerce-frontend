@@ -2,7 +2,18 @@ import React, { useState } from 'react';
 import './FAQ.css';
 
 const faqData = [
-  
+  {
+    question: 'What is DigitalDreamland?',
+    answer: 'DigitalDreamland is an online marketplace for digital products such as ebooks, software, templates, and courses.'
+  },
+  {
+    question: 'How do I purchase a product?',
+    answer: 'Simply browse our products, add your desired items to the cart, and proceed to checkout using our secure payment system.'
+  },
+  {
+    question: 'How do I access my purchased products?',
+    answer: 'After purchase, you will receive instant download links on your account dashboard and via email.'
+  },
   {
     question: 'Is my payment information secure?',
     answer: 'Yes, all payments are processed securely using Stripe. We do not store your payment details.'
