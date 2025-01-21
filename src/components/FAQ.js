@@ -32,8 +32,19 @@ const FAQ = () => {
   return (
     <div className="faq-container">
       <h2 className="faq-title">Frequently Asked Questions</h2>
-      
-      
+      <div className="faq-list">
+        {faqData.map((item, idx) => (
+          <div className={`faq-item${openIndex === idx ? ' open' : ''}`} key={idx}>
+            <button className="faq-question" onClick={() => toggleFAQ(idx)}>
+              {item.question}
+              <ChevronIcon open={openIndex === idx} />
+            </button>
+            {openIndex === idx && (
+              <div className="faq-answer">{item.answer}</div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
