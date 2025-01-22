@@ -5,7 +5,15 @@ import './Auth.css';
 import API_BASE_URL from '../services/api';
 
 const Register = () => {
-  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
  
 
