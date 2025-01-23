@@ -10,7 +10,26 @@ const ProductList = () => {
   const { addToCart, cart } = useCart();
   const [addedId, setAddedId] = useState(null);
 
- 
+  useEffect(() => {
+    // Check if user is logged in
+    const token = localStorage.getItem('token');
+    const userData = localStorage.getItem('user');
+    if (token && userData) {
+      setUser(JSON.parse(userData));
+    }
+    axios.get(`${API_BASE_URL}/api/product`)
+      .then(res => {
+        console.log('Fetched products:', res.data); // Debug log
+        setProducts(res.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError('Failed to fetch products');
+        setLoading(false);
+        console.error(err);
+      });
+  }, []);
+
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
