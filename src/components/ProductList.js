@@ -89,9 +89,9 @@ const ProductList = () => {
             ))}
           </div>
         )}
-       
+        <FAQ />
       </div>
-     
+      <Footer />
     </>
   );
 };
