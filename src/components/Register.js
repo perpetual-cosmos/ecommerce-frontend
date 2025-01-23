@@ -15,7 +15,13 @@ const Register = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
- 
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+    setError(''); // Clear error when user starts typing
+  };
 
   const validateForm = () => {
     if (formData.password.length < 6) {
