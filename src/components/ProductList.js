@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom';
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [error, setError] = useState(null);
+  const [user, setUser] = useState(null);
+  const { addToCart, cart } = useCart();
+  const [addedId, setAddedId] = useState(null);
 
  
   const handleLogout = () => {
