@@ -5,6 +5,15 @@ import axios from 'axios';
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [user, setUser] = useState(null);
+  const { addToCart, cart } = useCart();
+  const [added, setAdded] = useState(false);
+
+
+ 
 
   return (
     <>
