@@ -12,6 +12,24 @@ const ProductDetail = () => {
   const { addToCart, cart } = useCart();
   const [added, setAdded] = useState(false);
 
+  useEffect(() => {
+    // Check if user is logged in
+    const token = localStorage.getItem('token');
+    const userData = localStorage.getItem('user');
+    if (token && userData) {
+      setUser(JSON.parse(userData));
+    }
+    axios.get(`${API_BASE_URL}/api/product/${id}`)
+      .then(res => {
+        setProduct(res.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError('Product not found');
+        setLoading(false);
+      });
+  }, [id]);
+
 
  
 
