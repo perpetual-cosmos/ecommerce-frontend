@@ -37,7 +37,9 @@ const ProductDetail = () => {
     window.location.href = '/';
   };
 
- 
+  if (loading) return <div className="product-detail-loading">Loading product...</div>;
+  if (error) return <div className="product-detail-error">{error}</div>;
+  if (!product) return null;
 
   return (
     <>
