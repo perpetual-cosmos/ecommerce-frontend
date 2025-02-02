@@ -82,7 +82,12 @@ const ProductDetail = () => {
         </div>
         <div className="product-detail-features-section">
           <h2>Product Features</h2>
-          
+          <ul className="product-detail-features-list">
+            <li>Instant digital delivery</li>
+            <li>High quality and verified</li>
+            <li>Secure payment and download</li>
+            <li>Customer support included</li>
+          </ul>
         </div>
        
       </div>
