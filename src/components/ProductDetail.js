@@ -89,7 +89,7 @@ const ProductDetail = () => {
             <li>Customer support included</li>
           </ul>
         </div>
-       
+        <FAQ />
       </div>
      
     </>
