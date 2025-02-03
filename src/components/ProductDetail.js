@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-
+import FAQ from './FAQ';
+import Header from './Header';
+import Footer from './Footer';
+import './ProductDetail.css';
+import { useCart } from './CartContext';
+import API_BASE_URL from '../services/api';
 
 const ProductDetail = () => {
   const { id } = useParams();
