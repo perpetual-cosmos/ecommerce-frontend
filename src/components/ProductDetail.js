@@ -91,7 +91,7 @@ const ProductDetail = () => {
         </div>
         <FAQ />
       </div>
-     
+      <Footer />
     </>
   );
 };
