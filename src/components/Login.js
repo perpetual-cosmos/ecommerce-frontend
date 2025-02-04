@@ -50,8 +50,27 @@ const Login = () => {
 
          
          
-        
-    
+        <div className="auth-footer">
+          <p>
+            Don't have an account? <Link to="/register" className="auth-link">Register here</Link>
+          </p>
+          {emailNotVerified && (
+            <p className="verification-note">
+              <small>
+                Having trouble? Check your spam folder or{' '}
+                <button 
+                  onClick={resendVerification} 
+                  disabled={resending}
+                  className="inline-link"
+                >
+                  request a new verification email
+                </button>
+              </small>
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
 
