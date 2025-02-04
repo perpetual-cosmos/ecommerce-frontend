@@ -48,8 +48,29 @@ const Login = () => {
 
       
 
-         
-         
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="form-input"
+            />
+          </div>
+
+          <button 
+            type="submit" 
+            className="auth-button"
+            disabled={loading}
+          >
+            {loading ? 'Signing In...' : 'Sign In'}
+          </button>
+        </form>
+
         <div className="auth-footer">
           <p>
             Don't have an account? <Link to="/register" className="auth-link">Register here</Link>
