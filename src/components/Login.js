@@ -7,7 +7,14 @@ const Login = () => {
  
  
 
-
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+    setError(''); // Clear error when user starts typing
+    setEmailNotVerified(false); // Clear email verification error
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
