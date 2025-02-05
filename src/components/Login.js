@@ -5,7 +5,26 @@ import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
  
+ 
 
+
+
+ 
+  const resendVerification = async () => {
+    setResending(true);
+    try {
+      await axios.post(`${API_BASE_URL}/api/auth/resend-verification`, { 
+        email: formData.email 
+      });
+      setError('Verification email sent successfully! Please check your inbox.');
+      setEmailNotVerified(false);
+    } catch (err) {
+      console.error(err);
+      setError('Failed to send verification email. Please try again.');
+    } finally {
+      setResending(false);
+    }
+  };
 
   const checkVerificationStatus = async () => {
     setLoading(true);
