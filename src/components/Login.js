@@ -9,7 +9,45 @@ const Login = () => {
 
 
 
- 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    setEmailNotVerified(false);
+
+    try {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, formData);
+      
+      // Store token and user data
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      
+      // Set axios default header for future requests
+      axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
+      
+      // Clear any pending verification email
+      localStorage.removeItem('pendingVerificationEmail');
+      
+      // Redirect based on user role
+      if (response.data.user.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/');
+      }
+    } catch (err) {
+      if (err.response?.data?.emailNotVerified) {
+        setEmailNotVerified(true);
+        setError('Your email is not verified. Please check your inbox.');
+        localStorage.setItem('pendingVerificationEmail', formData.email);
+      } else {
+        console.error(err);
+        setError('Login failed. Please try again.');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const resendVerification = async () => {
     setResending(true);
     try {
