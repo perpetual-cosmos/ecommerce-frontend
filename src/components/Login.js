@@ -44,7 +44,32 @@ const Login = () => {
           <p>Sign in to your account to continue</p>
         </div>
 
-       
+        {error && (
+          <div className={`error-message ${emailNotVerified ? 'email-not-verified' : ''}`}>
+            {error}
+            {emailNotVerified && (
+              <div className="verification-options">
+                <p>Need to verify your email?</p>
+                <div className="verification-buttons">
+                  <button 
+                    onClick={resendVerification} 
+                    disabled={resending}
+                    className="resend-verification-btn"
+                  >
+                    {resending ? 'Sending...' : 'Resend Verification Email'}
+                  </button>
+                  <button 
+                    onClick={checkVerificationStatus} 
+                    disabled={loading}
+                    className="check-verification-btn"
+                  >
+                    {loading ? 'Checking...' : 'I\'ve Verified My Email'}
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
