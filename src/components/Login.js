@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-
+import './Auth.css';
+import API_BASE_URL from '../services/api';
 
 const Login = () => {
   const [formData, setFormData] = useState({
