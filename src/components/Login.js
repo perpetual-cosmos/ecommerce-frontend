@@ -8,7 +8,11 @@ const Login = () => {
     email: '',
     password: ''
   });
- 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [emailNotVerified, setEmailNotVerified] = useState(false);
+  const [resending, setResending] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
