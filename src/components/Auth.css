@@ -66,6 +66,65 @@
   border: 1px solid #ffeaa7;
 }
 
+/* Verification Options */
+.verification-options {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #ffeaa7;
+}
+
+.verification-options p {
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
+.resend-verification-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resend-verification-btn:hover:not(:disabled) {
+  background: #5a67d8;
+}
+
+.resend-verification-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.verification-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.check-verification-btn {
+  background: #48bb78;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.check-verification-btn:hover:not(:disabled) {
+  background: #38a169;
+}
+
+.check-verification-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
 
 
 
