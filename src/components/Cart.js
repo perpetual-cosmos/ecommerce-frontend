@@ -54,7 +54,7 @@ const Cart = () => {
           <button className="cart-checkout-btn" onClick={() => navigate('/checkout/cart')}>Proceed to Checkout</button>
         </div>
       </div>
-      
+      <Footer />
     </>
   );
 };
