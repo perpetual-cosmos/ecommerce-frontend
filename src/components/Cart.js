@@ -7,7 +7,18 @@ const Cart = () => {
 
 
 
-
+  if (cart.length === 0) {
+    return (
+      <>
+        <Header />
+        <div className="cart-container empty">
+          <h2>Your Cart is Empty</h2>
+          <Link to="/products" className="cart-back-btn">Browse Products</Link>
+        </div>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
