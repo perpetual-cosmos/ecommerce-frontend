@@ -248,3 +248,34 @@
   text-decoration: underline;
 }
 
+/* Responsive Design */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 10px;
+  }
+  
+  .auth-card {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+  
+  .auth-header h2 {
+    font-size: 24px;
+  }
+  
+  .auth-header p {
+    font-size: 14px;
+  }
+  
+  .form-input {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+  
+  .auth-button {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+
