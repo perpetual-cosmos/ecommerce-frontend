@@ -3,9 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
- 
+  const { cart, updateQuantity, removeFromCart, clearCart } = useCart();
+  const navigate = useNavigate();
+  const [updating, setUpdating] = useState(null);
 
-
+  const subtotal = cart.reduce((sum, item) => sum + (item.offer_price ? item.offer_price : item.price) * item.quantity, 0);
 
   if (cart.length === 0) {
     return (
