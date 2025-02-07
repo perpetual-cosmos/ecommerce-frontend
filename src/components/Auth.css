@@ -196,4 +196,55 @@
   transform: none;
 }
 
+/* Auth Footer */
+.auth-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.auth-footer p {
+  color: #666;
+  font-size: 14px;
+  margin: 0 0 10px 0;
+}
+
+.verification-note {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.verification-note small {
+  color: #718096;
+  font-size: 12px;
+}
+
+.inline-link {
+  background: none;
+  border: none;
+  color: #667eea;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+.inline-link:hover {
+  color: #764ba2;
+}
+
+.auth-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
 
