@@ -9,7 +9,10 @@ export const CartProvider = ({ children }) => {
 
  
 
-  
+  // Save cart to localStorage on change
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (product, quantity = 1) => {
     setCart(prev => {
