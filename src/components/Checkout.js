@@ -7,6 +7,53 @@ const stripePromise = loadStripe('pk_test_51Nw...YOUR_PUBLIC_KEY...');
 const CheckoutForm = ({ products, user, isCart, total }) => {
   
 
+  const { clearCart } = useCart();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setProcessing(true);
+    setError(null);
+    try {
+      const token = localStorage.getItem('token');
+      let res;
+      if (isCart) {
+        res = await axios.post(`${API_BASE_URL}/api/payment/create-payment-intent`, {
+          productIds: products.map(p => p._id)
+        }, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+      } else {
+        res = await axios.post(`${API_BASE_URL}/api/payment/create-payment-intent`, {
+          productId: products[0]._id
+        }, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+      }
+      const clientSecret = res.data.clientSecret;
+      const { paymentIntent, error: stripeError } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+          billing_details: { email }
+        }
+      });
+      if (stripeError) {
+        console.error(stripeError);
+        setError('Payment failed. Please check your card details and try again.');
+        setProcessing(false);
+        return;
+      }
+      if (paymentIntent.status === 'succeeded') {
+        setSuccess(true);
+        if (isCart) clearCart();
+      } else {
+        setError('Payment failed.');
+      }
+    } catch (err) {
+      console.error(err);
+      setError('Payment failed. Please try again.');
+    }
+    setProcessing(false);
+  };
 
  
 
