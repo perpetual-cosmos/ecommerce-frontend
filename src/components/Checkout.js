@@ -55,7 +55,9 @@ const CheckoutForm = ({ products, user, isCart, total }) => {
     setProcessing(false);
   };
 
- 
+  if (success) {
+    return <div className="checkout-success">Payment successful! 🎉<br/>Check your email for download instructions.</div>;
+  }
 
   return (
     <form className="checkout-form" onSubmit={handleSubmit}>
