@@ -1,11 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import Header from './Header';
+import Footer from './Footer';
+import { useCart } from './CartContext';
+import './Checkout.css';
+import API_BASE_URL from '../services/api';
 
-const stripePromise = loadStripe('pk_test_51Nw...YOUR_PUBLIC_KEY...'); 
+const stripePromise = loadStripe('pk_test_51Nw...YOUR_PUBLIC_KEY...'); // TODO: Replace with your real Stripe public key
 
 const CheckoutForm = ({ products, user, isCart, total }) => {
-  
+  const stripe = useStripe();
+  const elements = useElements();
+  const [email, setEmail] = useState(user?.email || '');
+  const [processing, setProcessing] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const { clearCart } = useCart();
 
