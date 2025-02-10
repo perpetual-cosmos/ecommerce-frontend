@@ -8,7 +8,42 @@ const EmailVerification = () => {
 
 
  
- 
+  const verifyEmail = async (token) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/auth/verify-email/${token}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setMessage(data.message);
+        
+        // Update localStorage if user data exists
+        const existingUser = localStorage.getItem('user');
+        if (existingUser) {
+          const userData = JSON.parse(existingUser);
+          userData.isEmailVerified = true;
+          localStorage.setItem('user', JSON.stringify(userData));
+        }
+        
+        // Clear pending verification email
+        localStorage.removeItem('pendingVerificationEmail');
+      } else {
+        setStatus('error');
+        console.error(data);
+        setError('Verification failed. Please try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      console.error(error);
+      setError('Network error. Please try again.');
+    }
+  };
 
   const handleResendVerification = async () => {
     setStatus('verifying');
