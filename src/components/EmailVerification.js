@@ -3,11 +3,33 @@ import './EmailVerification.css';
 import API_BASE_URL from '../services/api';
 
 const EmailVerification = () => {
-  
+  const [status, setStatus] = useState('verifying');
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+  const [countdown, setCountdown] = useState(5);
 
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
 
+    if (!token) {
+      setStatus('error');
+      setError('No verification token found in the URL.');
+      return;
+    }
 
- 
+    verifyEmail(token);
+  }, []);
+
+  useEffect(() => {
+    if (status === 'success' && countdown > 0) {
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (status === 'success' && countdown === 0) {
+      window.location.href = '/login';
+    }
+  }, [status, countdown]);
+
   const verifyEmail = async (token) => {
     try {
       const response = await fetch(`${API_BASE_URL}/api/auth/verify-email/${token}`, {
