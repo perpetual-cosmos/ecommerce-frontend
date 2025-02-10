@@ -10,7 +10,38 @@ const EmailVerification = () => {
  
  
 
- 
+  const handleResendVerification = async () => {
+    setStatus('verifying');
+    setError('');
+    
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/auth/resend-verification`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: localStorage.getItem('pendingVerificationEmail') || ''
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setMessage('Verification email sent successfully! Please check your inbox.');
+      } else {
+        setStatus('error');
+        console.error(data);
+        setError('Failed to resend verification email. Please try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      console.error(error);
+      setError('Network error. Please try again.');
+    }
+  };
+
   const renderContent = () => {
     switch (status) {
       case 'verifying':
