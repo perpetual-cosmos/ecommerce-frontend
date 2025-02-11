@@ -316,6 +316,38 @@
   height: auto;
 }
 
+/* Hero Background Cover */
+.hero-bg-cover {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 420px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 700px) {
+  .hero-bg-cover {
+    min-height: 320px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+.hero-bg-cover::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.1);
+  z-index: 0;
+}
+.hero-bg-cover .hero-content {
+  position: relative;
+  z-index: 1;
+}
+
 
 
 
