@@ -611,5 +611,77 @@
   color: #a0aec0;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    height: 54px;
+    padding: 0 8px;
+    gap: 0;
+  }
+  .nav-menu {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 60px 20px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .section-header h2 {
+    font-size: 28px;
+  }
+
+  .product-card {
+    padding: 20px;
+  }
+
+  .product-name {
+    font-size: 18px;
+  }
+
+  .product-price {
+    font-size: 20px;
+  }
+} 
+
+/* --- Responsive Header Additions --- */
+
 
 
