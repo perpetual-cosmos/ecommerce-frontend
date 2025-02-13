@@ -683,5 +683,59 @@
 
 /* --- Responsive Header Additions --- */
 
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  margin-left: 10px;
+  z-index: 1100;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  height: 4px;
+  width: 100%;
+  background: #256d46;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+  display: block;
+}
 
+/* Mobile nav overlay */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.98);
+  z-index: 2000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  transition: 0.3s;
+}
+.mobile-nav.open {
+  display: flex;
+}
+.mobile-nav .nav-link {
+  font-size: 1.5rem;
+  padding: 16px 32px;
+}
+
+@media (max-width: 900px) {
+  .nav-menu {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
 
