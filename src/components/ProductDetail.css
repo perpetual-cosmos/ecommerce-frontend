@@ -50,5 +50,61 @@
   letter-spacing: 0.5px;
 }
 
+.product-detail-title {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1.1rem 0;
+  color: #222b45;
+}
+
+.product-detail-description {
+  color: #444;
+  font-size: 1.13rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.product-detail-pricing {
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.product-detail-price {
+  color: #2d8f5b;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.product-detail-offer-price {
+  color: #e53e3e;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.product-detail-original-price {
+  color: #a0aec0;
+  text-decoration: line-through;
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
+}
+
+.product-detail-offer-badge {
+  background: #ffefc7;
+  color: #b88900;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 0.18rem 0.7rem;
+  margin-left: 0.7rem;
+}
+
+.product-detail-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.2rem;
+}
 
 
