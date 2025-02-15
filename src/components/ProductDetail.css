@@ -179,3 +179,13 @@
   margin: 3rem 0;
 }
 
+@media (max-width: 900px) {
+  .product-detail-main {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .product-detail-image-section, .product-detail-info-section {
+    min-width: 0;
+    max-width: 100%;
+  }
+} 
