@@ -39,5 +39,25 @@
   }
 }
 
+@media (max-width: 900px) {
+  .product-list-container {
+    padding: 1.5rem 1vw;
+  }
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-list-container {
+    padding: 1rem 0.5vw;
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
 
 
