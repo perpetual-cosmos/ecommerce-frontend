@@ -197,4 +197,45 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Responsive Design */
+@media (max-width: 600px) {
+  .email-verification-container {
+    padding: 10px;
+  }
+  
+  .verification-card {
+    border-radius: 15px;
+  }
+  
+  .verification-header {
+    padding: 30px 20px;
+  }
+  
+  .verification-header h1 {
+    font-size: 28px;
+  }
+  
+  .verification-content {
+    padding: 30px 20px;
+  }
+  
+  .verification-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .verification-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .verification-content h2 {
+    font-size: 20px;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
 
