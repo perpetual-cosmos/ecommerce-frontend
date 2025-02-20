@@ -12,5 +12,38 @@
   padding: 4rem 2rem;
 }
 
+.cart-back-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  background: #2d8f5b;
+  color: #fff;
+  padding: 0.7rem 2.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background 0.18s;
+}
+.cart-back-btn:hover {
+  background: #256d46;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.cart-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+}
+
 
 
