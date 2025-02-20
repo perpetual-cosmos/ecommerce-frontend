@@ -1,0 +1,16 @@
+.cart-container {
+  max-width: 800px;
+  margin: 3rem auto 2rem auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+
+.cart-container.empty {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+
+
