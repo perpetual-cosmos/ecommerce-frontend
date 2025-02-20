@@ -121,4 +121,37 @@
   color: #fff;
 }
 
+.cart-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
 
+.cart-subtotal {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #256d46;
+}
+.cart-subtotal span {
+  color: #222b45;
+  margin-left: 0.5rem;
+}
+
+.cart-clear-btn {
+  background: #fff5f5;
+  color: #e53e3e;
+  border: 1.5px solid #e53e3e;
+  border-radius: 7px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.cart-clear-btn:hover {
+  background: #e53e3e;
+  color: #fff;
+}
