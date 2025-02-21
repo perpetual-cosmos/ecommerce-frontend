@@ -8,7 +8,8 @@ const AdminDashboard = () => {
   return (
     <Box>
       <Tabs value={tab} onChange={(_, v) => setTab(v)} sx={{ mb: 2 }}>
-        
+        <Tab label="Product Listing" />
+        <Tab label="Order Insights" />
       </Tabs>
       {tab === 0 && <AdminProductList />}
       {tab === 1 && <AdminOrderInsights />}
