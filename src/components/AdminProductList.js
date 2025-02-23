@@ -63,6 +63,9 @@ const categories = ['ebook', 'software', 'template', 'course', 'other'];
      
 
      
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleSubmit} variant="contained" disabled={loading}>{loading ? 'Saving...' : 'Save Product'}</Button>
+        </DialogActions>
       </Dialog>
     </Box>
   );
