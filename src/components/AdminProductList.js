@@ -74,6 +74,13 @@ const categories = ['ebook', 'software', 'template', 'course', 'other'];
     }
   };
 
+  // Helper: file to base64
+  const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
 
   return (
     <Box p={3}>
