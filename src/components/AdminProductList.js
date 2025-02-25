@@ -52,7 +52,26 @@ const categories = ['ebook', 'software', 'template', 'course', 'other'];
       });
       const product_id = productRes.data.product.product_id;
 
-     
+      // 2. Upload images
+      for (const img of imageFiles) {
+        const imgBase64 = await toBase64(img);
+        await axios.post('/api/image', {
+          product_id,
+          imageFile: imgBase64,
+          imageType: 'gallery',
+          altText: img.name
+        }, {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        });
+      }
+      setLoading(false);
+      setOpen(false);
+      fetchProducts();
+    } catch (err) {
+      setLoading(false);
+      alert('Error creating product');
+      console.error(err);
+    }
   };
 
 
@@ -60,7 +79,38 @@ const categories = ['ebook', 'software', 'template', 'course', 'other'];
     <Box p={3}>
       <Typography variant="h4" gutterBottom>Admin Product Listing</Typography>
       <Button variant="contained" startIcon={<Add />} onClick={handleOpen} sx={{ mb: 2 }}>Add Product</Button>
-     
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Product ID</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Price</TableCell>
+              <TableCell>Offer Price</TableCell>
+              <TableCell>Category</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell>Actions</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {products.map(product => (
+              <TableRow key={product._id}>
+                <TableCell><Chip label={product.product_id} size="small" /></TableCell>
+                <TableCell>{product.name}</TableCell>
+                <TableCell>${product.price}</TableCell>
+                <TableCell>{product.offer_price ? `$${product.offer_price}` : '-'}</TableCell>
+                <TableCell>{product.category}</TableCell>
+                <TableCell>{product.isActive ? 'Active' : 'Inactive'}</TableCell>
+                <TableCell>
+                  <IconButton color="primary"><Edit /></IconButton>
+                  <IconButton color="error"><Delete /></IconButton>
+                  {/* TODO: Add image view/edit */}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
 
       {/* Product Creation Dialog */}
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
