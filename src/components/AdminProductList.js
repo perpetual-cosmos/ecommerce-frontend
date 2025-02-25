@@ -4,6 +4,38 @@ import axios from 'axios';
 
 const categories = ['ebook', 'software', 'template', 'course', 'other'];
 
+const AdminProductList = () => {
+  const [products, setProducts] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({
+    product_id: '',
+    name: '',
+    description: '',
+    price: '',
+    offer_price: '',
+    category: '',
+    file: null,
+    images: []
+  });
+  const [imageFiles, setImageFiles] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // Fetch products
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const res = await axios.get('/api/product/admin/all', {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+      });
+      setProducts(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   // Open dialog and generate product_id
   const handleOpen = () => {
     setForm({
