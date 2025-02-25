@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
-
+import {
+  Box, Button, TextField, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Select, MenuItem, InputLabel, FormControl, Dialog, DialogTitle, DialogContent, DialogActions, IconButton, Grid, Chip
+} from '@mui/material';
+import { Add, Image as ImageIcon, Delete, Edit } from '@mui/icons-material';
+import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
 const categories = ['ebook', 'software', 'template', 'course', 'other'];
