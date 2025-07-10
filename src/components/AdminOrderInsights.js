@@ -14,21 +14,20 @@ const AdminOrderInsights = () => {
   const [metrics, setMetrics] = useState({ totalSales: 0, totalOrders: 0, completed: 0, refunded: 0, productSales: {} });
 
   useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const res = await axios.get(`/api/order/admin/all?status=${status}&page=${page}&limit=20`, {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        });
+        setOrders(res.data.orders);
+        setPagination(res.data.pagination);
+        calculateMetrics(res.data.orders);
+      } catch (err) {
+        console.error(err);
+      }
+    };
     fetchOrders();
-  }, [fetchOrders]);
-
-  const fetchOrders = async () => {
-    try {
-      const res = await axios.get(`/api/order/admin/all?status=${status}&page=${page}&limit=20`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-      });
-      setOrders(res.data.orders);
-      setPagination(res.data.pagination);
-      calculateMetrics(res.data.orders);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  }, [status, page]);
 
   const calculateMetrics = (orders) => {
     let totalSales = 0, totalOrders = 0, completed = 0, refunded = 0;
